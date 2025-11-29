@@ -165,7 +165,7 @@ This helps our model learn richer, more stable representations.
 
 
 class MoCoCovLoss(nn.Module):
-    def __init__(self, temperature=0.07, lambda_cov=1e-2, use_queue_for_cov=False):
+    def __init__(self, temperature=0.07, lambda_cov=5e-2, use_queue_for_cov=False):
         """
         temperature: contrastive temperature parameter (tau)
         lambda_cov: weight for covariance regularization
@@ -605,7 +605,7 @@ config = {
     "weight_decay": 1e-4,
     "tau": 0.07,                # Temperature
     "m": 0.999,                 # Momentum for EMA encoder_k
-    "lambda_cov": 1e-2,         # FIXED: covariance regularization strength
+    "lambda_cov": 5e-2,         # FIXED: covariance regularization strength
     "queue_size": 8192,
     "save_every": 1,
     "checkpoint_path": "/home/ubuntu/moco_cov_checkpoint.pth"
