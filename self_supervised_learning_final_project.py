@@ -1180,7 +1180,7 @@ class SUN397Dataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.df.iloc[idx]
-        img_path = os.path.join(self.root, row["image"])
+        img_path = os.path.join(self.root, row["filename"])
 
         img = Image.open(img_path).convert("RGB")
         img = self.transform(img)
@@ -1293,7 +1293,7 @@ test_preds = test_logits.argmax(dim=1).cpu().numpy()
 # ------------------------------------------------------------
 
 submission = pd.DataFrame({
-    "image": test_csv["image"],
+    "image": test_csv["filename"],
     "label": test_preds
 })
 
