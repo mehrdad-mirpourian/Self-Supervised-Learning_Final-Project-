@@ -566,7 +566,7 @@ print("Configuring MoCo-Cov training ...")
 # 1. Core hyperparameters for SSL training (20-epoch test)
 # --------------------------------------------------------
 config = {
-    "epochs": 20,               # For testing. Use 100–200 later.
+    "epochs": 2,               # For testing. Use 100–200 later.
     "batch_size": 256,          # Correct for LR = 0.03
     "lr": 0.03,                 # MoCo-v2 LR for batch_size=256
     "momentum": 0.9,
@@ -986,7 +986,7 @@ from torch.utils.data import TensorDataset, DataLoader
 def linear_probe(
     train_feats, train_labels,
     test_feats, test_labels,
-    num_epochs=20,
+    num_epochs=2,
     batch_size=256,
     lr=0.01,
     device=None
@@ -1064,7 +1064,7 @@ def linear_probe(
 lp_acc = linear_probe(
     train_feats, train_labels,
     test_feats, test_labels,
-    num_epochs=20,
+    num_epochs=2,
     batch_size=256,
     lr=0.01,
     device=device       # <-- REQUIRED
@@ -1239,7 +1239,7 @@ print("\nTraining linear probe on SUN397 (frozen encoder)...")
 sun397_acc = linear_probe(
     train_feats, train_labels,
     val_feats,   val_labels,
-    num_epochs=20,
+    num_epochs=2,
     batch_size=256,
     lr=0.01,
     device=device
