@@ -858,13 +858,12 @@ for epoch in range(num_epochs):
     # ---------------------------------------------------
     # END OF EPOCH SUMMARY
     # ---------------------------------------------------
-    print(
-        f"\n>>> Epoch {epoch+1} Summary: "
-        f"AvgLoss={epoch_loss/len(ssl_loader):.4f}, "
-        f"AvgContrast={epoch_contrast/len(ssl_loader):.4f}, "
-        f"AvgCov={epoch_cov/len(ssl_loader):.4f}\"
-    )
-
+    print("\n>>> Epoch {} Summary: AvgLoss={:.4f}, AvgContrast={:.4f}, AvgCov={:.4f}".format(
+    epoch+1,
+    epoch_loss/len(ssl_loader),
+    epoch_contrast/len(ssl_loader),
+    epoch_cov/len(ssl_loader)
+    ))
     scheduler.step()
 
     # ---------------------------------------------------
