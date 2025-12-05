@@ -850,13 +850,11 @@ for epoch in range(num_epochs):
         # ---------------------------------------------------
         if (step + 1) % log_every == 0:
             print(
-                f"[Epoch {epoch+1}/{num_epochs}] "
-                f"Step {step+1}/{len(ssl_loader)} | "
-                f"Loss: {loss.item():.4f} | "
-                f"Contrast: {loss_contrast.item():.4f} | "
-                f"Cov: {(config['lambda_cov'] * cov_loss_raw).item():.4f} | "
-                f"LR: {scheduler.get_last_lr()[0]:.6f}"
-            )
+            f"\n>>> Epoch {epoch+1} Summary: "
+            f"AvgLoss={epoch_loss/len(ssl_loader):.4f}, "
+            f"AvgContrast={epoch_contrast/len(ssl_loader):.4f}, "
+            f"AvgCov={epoch_cov/len(ssl_loader):.4f}"
+        )
 
     # ---------------------------------------------------
     # END OF EPOCH SUMMARY
