@@ -848,8 +848,7 @@ for epoch in range(num_epochs):
         # ---------------------------------------------------
         # LOGGING
         # ---------------------------------------------------
-        if (step + 1) % log_every == 0:
-            print(
+        print(
             f"\n>>> Epoch {epoch+1} Summary: "
             f"AvgLoss={epoch_loss/len(ssl_loader):.4f}, "
             f"AvgContrast={epoch_contrast/len(ssl_loader):.4f}, "
